@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  desafio-api:
+    build: .
+    environment:
+      MONGO_URL: "mongodb://swapiuser:swapipass@mongo:27017"
+    ports:
+      - "8080:8080"
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: swapiuser
+      MONGO_INITDB_ROOT_PASSWORD: swapipass
+      MONGO_INITDB_DATABASE: swapi
+    ports:
+      - "27017:27017"
